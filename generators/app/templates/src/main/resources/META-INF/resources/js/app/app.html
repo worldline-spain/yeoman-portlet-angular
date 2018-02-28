@@ -1,0 +1,103 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="ui-g-12">
+            <h3 class="first">CALCULADOR DEL COSTE DEL ABSENTISMO</h3>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12">
+            A través de nuestro Calculador del coste del absentismo odrá conocer el coste directo del absentismo laboralde su empresa,
+            tan sólo introduciendo los datos que solicitamos a continuación.
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-6">
+            <h5 class="first">TIPO DE CONTINGENCIA</h5>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-g-6">
+                <p-radioButton name="groupname" label="Profesional" value="val1" [(ngModel)]="selectedValue"></p-radioButton>
+            </div>
+            <div class="ui-g-6">
+                <p-radioButton name="groupname" label="Común" value="val2" [(ngModel)]="selectedValue"></p-radioButton>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-12">
+            Indique si se trata de una baja de carácter profesional o no
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-6">
+            <h5 class="first">TIPO DE CALCULO</h5>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-g-6">
+                <p-radioButton name="groupname2" label="Individual" value="val1" [(ngModel)]="selectedValue2"></p-radioButton>
+            </div>
+            <div class="ui-g-6">
+                <p-radioButton name="groupname2" label="Colectivo" value="val2" [(ngModel)]="selectedValue2"></p-radioButton>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-12">
+            Si el calculo es para una persona en concreto o para un grupo de trabajadores
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-6">
+            <h5 class="first">COMPLEMENTO SALARIAL</h5>
+        </div>
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-g-6">
+                <p-radioButton name="groupname3" label="Sin complemento" value="val1" [(ngModel)]="selectedValue3"></p-radioButton>
+            </div>
+            <div class="ui-g-6">
+                <p-radioButton name="groupname3" label="Con complemento" value="val2" [(ngModel)]="selectedValue3"></p-radioButton>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-12">
+            Indique si en su empresa se pagan complementos en caso de baja
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-6 align-row-center">
+        <div class="ui-g">
+            <h5 class="first">NÚMERO DE DÍAS</h5>
+        </div>
+        <div class="ui-g">
+            <input id="input" type="number" size="30" pInputText [(ngModel)]="text">
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-6 align-row-center">
+        <div class="ui-g">
+            <h5 class="first">BASE REGULADORA DIARIA</h5>
+        </div>
+        <div class="ui-g">
+            <input id="input" type="number" size="30" pInputText [(ngModel)]="text2">
+        </div>
+    </div>
+
+
+    <div class="ui-g-6 print-button">
+        <div class="ui-g">
+            <button pButton type="button" (click)="count()" label="Imprimir" class="ui-button-warning button"></button>
+        </div>
+    </div>
+    <div class="ui-g-6 calculate-button">
+        <div class="ui-g">
+            <button pButton type="button" (click)="count()" label="Calcular" class="ui-button-warning button"></button>
+        </div>
+    </div>
+
+    <div class="ui-g-12 align-row-center">
+        <div class="ui-g">
+            <h3>COSTE TOTAL para la empresa XXXX €</h3>
+        </div>
+    </div>
+
+    <p-chart type="pie" [data]="data"></p-chart>
+</div>
