@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule,BrowserAnimationsModule } from '../../libs/animations/src/animations';
+import { BrowserAnimationsModule } from '../../libs/animations/src/animations';
 import 'chart.js/dist/Chart.min'
 
 
@@ -10,6 +10,7 @@ import { InputTextModule, ButtonModule, RadioButtonModule,ChartModule } from 'pr
 @NgModule({
 	imports: [
 		BrowserModule,
+		BrowserAnimationsModule,
 		InputTextModule,
 		ButtonModule,
 		RadioButtonModule,
