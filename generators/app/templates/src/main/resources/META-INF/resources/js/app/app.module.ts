@@ -1,21 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule, Http } from '@angular/http';
+import { /* PRIME NG MODULES*/ } from 'primeng-wl/primeng';
+import { BrowserAnimationsModule, TranslateModule, TranslateLoader, TranslateHttpLoader  } from '../../libs/libs';
+
+import * as Quill from 'quill';
+import 'chart.js/dist/Chart.min';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '../../libs/animations/src/animations';
-import 'chart.js/dist/Chart.min'
 
+window['Quill'] = Quill;
 
-import { InputTextModule, ButtonModule, RadioButtonModule,ChartModule } from 'primeng-wl/primeng';
+// The translate loader needs to know where to load i18n files
+// in Ionic's static asset pipeline.
+export function HttpLoaderFactory(http: Http) {
+	return new TranslateHttpLoader(http, './o/<%= title %>/js/assets/i18n/locale-', '.json');
+}
+
 @NgModule({
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
-		InputTextModule,
-		ButtonModule,
-		RadioButtonModule,
 		FormsModule,
-		ChartModule
+		HttpModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [Http]
+			}
+		})
 	],
 	declarations: [AppComponent],
 	entryComponents: [AppComponent],

@@ -58,11 +58,6 @@ module.exports = class extends App {
                 { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
             );
             this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/angular-loader.js'),
-                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/angular-loader.js'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
                 this.templatePath('src/main/resources/META-INF/resources/js/angular-loader.ts'),
                 this.destinationPath('./' + answers.title+'/src/main/resources/META-INF/resources/js/angular-loader.ts'),
                 { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
@@ -83,13 +78,13 @@ module.exports = class extends App {
                 { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title)}
             );
             this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.js'),
-                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.component.js'),
+                this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.ts'),
+                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.component.ts'),
                 { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
             );
             this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.ts'),
-                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.component.ts'),
+                this.templatePath('src/main/resources/META-INF/resources/js/app/app.module.ts'),
+                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.module.ts'),
                 { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
             );
             this.fs.copyTpl(
