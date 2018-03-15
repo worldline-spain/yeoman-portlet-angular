@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '../../libs/libs';
+import { TranslateService, LiferayService } from '../services/shared.module';
 
 
 @Component({
@@ -11,19 +11,17 @@ export class AppComponent {
 	caption = 'Hello world!';
 
 	constructor(
-		private translate: TranslateService
+		private translate: TranslateService,
+		private liferayService: LiferayService
 	) {
 		this.initTranslate();
 	}
 
 	initTranslate() {
 		// Set the default language for translation strings, and the current language.
-		this.translate.setDefaultLang('es');
+		this.translate.setDefaultLang(this.liferayService.getLanguageLiferay());
 
-		if (this.translate.getBrowserLang() !== undefined) {
-			this.translate.use(this.translate.getBrowserLang());
-		} else {
-			this.translate.use('es'); // Set your language here
-		}
+		// Set your language here
+		this.translate.use(this.liferayService.getLanguageLiferay());
 	}
 }
