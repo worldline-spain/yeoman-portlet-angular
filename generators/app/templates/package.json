@@ -56,13 +56,31 @@
       "protractor": "5.1.2",
       "source-map-explorer": "1.5.0",
       "tslint": "5.7.0",
-      "typescript": "2.3.4"
+      "typescript": "2.3.4",
+      "awesome-typescript-loader": "^3.0.4",
+      "extract-text-webpack-plugin": "^2.0.0-beta.5",
+      "file-loader": "^0.9.0",
+      "gulp": "^3.9.1",
+      "gulp-concat": "^2.6.1",
+      "gulp-file": "^0.4.0",
+      "gulp-minify-css": "^1.2.4",
+      "gulp-sass": "^3.1.0",
+      "gulp-sourcemaps": "^2.6.4",
+      "gulp-typescript": "^4.0.1",
+      "html-loader": "^0.4.3",
+      "html-webpack-plugin": "^2.16.1",
+      "webpack": "2.2.1",
+      "webpack-merge": "^3.0.0",
+      "webpack-stream": "^4.0.2",
+      "style-loader": "^0.13.1",
+      "raw-loader": "^0.5.1",
+      "css-loader": "^0.28.10"
     },
     "main": "js/angular-loader.js",
-    "name": "<%= title %>", 
+    "name": "<%= title %>",
     "scripts": {
-      "build": "tsc && babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler"
+      "build": "tsc && babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler",
+      "serve": "gulp serve"
     },
     "version": "1.0.0"
   }
-  
