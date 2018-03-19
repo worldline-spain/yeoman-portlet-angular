@@ -37,6 +37,14 @@ module.exports = class extends App {
                 this.destinationPath('./' + answers.title + '/.gitignore')
             );
             this.fs.copy(
+                this.templatePath('.editorconfig'),
+                this.destinationPath('./' + answers.title + '/.editorconfig')
+            );
+            this.fs.copy(
+                this.templatePath('gulpfile.js'),
+                this.destinationPath('./' + answers.title + '/gulpfile.js')
+            );
+            this.fs.copy(
                 this.templatePath('src/main/java/myNpmAngularPortlet/constants/'),
                 this.destinationPath('./' + answers.title+'/src/main/java/'+ changeCase.pathCase(answers.title)+'/')  
             ); 

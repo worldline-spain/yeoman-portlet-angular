@@ -1,6 +1,5 @@
 // Import needed polyfills before application is launched
-import 'reflect-metadata';
-import 'zone.js';
+import './polyfills';
 
 // Declare Liferay AMD loader
 declare var Liferay: any;
