@@ -13,6 +13,8 @@ module.exports = class extends Generator {
                 required: true
             }
         );
+
+        this.option('internalStyles');
     }
 
     initializing() {
@@ -35,41 +37,41 @@ module.exports = class extends Generator {
         //Global copy
         this.fs.copy(
             this.templatePath('./'),
-            this.destinationPath(`./${this.options.portletName}`)
+            this.destinationPath(`./${userVariables.portletName}`)
         );
 
         // Copy dot files
         this.fs.copy(
             this.templatePath('.babelrc'),
-            this.destinationPath(`./${this.options.portletName}/.babelrc`)
+            this.destinationPath(`./${userVariables.portletName}/.babelrc`)
         );
         this.fs.copy(
             this.templatePath('.editorconfig'),
-            this.destinationPath(`./${this.options.portletName}/.editorconfig`)
+            this.destinationPath(`./${userVariables.portletName}/.editorconfig`)
         );
         this.fs.copy(
             this.templatePath('.npmbundlerrc'),
-            this.destinationPath(`./${this.options.portletName}/.npmbundlerrc`)
+            this.destinationPath(`./${userVariables.portletName}/.npmbundlerrc`)
         );
         this.fs.copy(
             this.templatePath('.gitignore'),
-            this.destinationPath(`./${this.options.portletName}/.gitignore`)
+            this.destinationPath(`./${userVariables.portletName}/.gitignore`)
         );
 
         //Replace user atributes from variable files
         this.fs.copyTpl(
             this.templatePath('bnd.bnd'),
-            this.destinationPath(`./${this.options.portletName}/bnd.bnd`),
+            this.destinationPath(`./${userVariables.portletName}/bnd.bnd`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('package-lock.json'),
-            this.destinationPath(`./${this.options.portletName}/package-lock.json`),
+            this.destinationPath(`./${userVariables.portletName}/package-lock.json`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('package.json'),
-            this.destinationPath(`./${this.options.portletName}/package.json`),
+            this.destinationPath(`./${userVariables.portletName}/package.json`),
             userVariables
         )
     }
@@ -87,44 +89,61 @@ module.exports = class extends Generator {
             camel: changeCase.camelCase(this.options.portletName)
         }
 
+        // If --internalStyles flag present
+        let userVariablesWithInternalStyles = {};
+        if (this.options.internalStyles) {
+            userVariablesWithInternalStyles = Object.assign({
+                cssImports: 
+`
+<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/font-awesome@4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@5.2.1-SNAPSHOT6/resources/themes/omega/theme.css"/>
+<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@5.2.1-SNAPSHOT6/resources/primeng.min.css"/>
+`
+            }, userVariables);
+        } else {
+            userVariablesWithInternalStyles = Object.assign({
+                cssImports: ''
+            }, userVariables)
+        }
+
         //Replace user atributes from variable files
         this.fs.copyTpl(
             this.templatePath('src/main/resources/META-INF/resources/js/angular-loader.ts'),
-            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/angular-loader.ts`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/js/angular-loader.ts`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('src/main/resources/content/Language.properties'),
-            this.destinationPath(`./${this.options.portletName}/src/main/resources/content/Language.properties`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/content/Language.properties`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('src/main/resources/META-INF/resources/view.jsp'),
-            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/view.jsp`),
-            userVariables
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/view.jsp`),
+            userVariablesWithInternalStyles
         );
         this.fs.copyTpl(
             this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.ts'),
-            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/app/app.component.ts`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/js/app/app.component.ts`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('src/main/resources/META-INF/resources/js/app/app.module.ts'),
-            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/app/app.module.ts`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/js/app/app.module.ts`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('src/main/java/myNpmAngularPortlet/portlet/MyNpmAngularPortlet.java'),
-            this.destinationPath(`./${this.options.portletName}/src/main/java/${changeCase.pathCase(this.options.portletName)}/portlet/${changeCase.camelCase(this.options.portletName)}.java`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/java/${userVariables.bundle}/portlet/${userVariables.camel}.java`),
             userVariables
         );
         this.fs.copyTpl(
             this.templatePath('src/main/java/myNpmAngularPortlet/constants/MyNpmAngularPortletKeys.java'),
-            this.destinationPath(`./${this.options.portletName}/src/main/java/${changeCase.pathCase(this.options.portletName)}/constants/${changeCase.camelCase(this.options.portletName)}Keys.java`),
+            this.destinationPath(`./${userVariables.portletName}/src/main/java/${userVariables.bundle}/constants/${userVariables.camel}Keys.java`),
             userVariables
         );
         this.fs.delete(
-            this.destinationPath(`./${this.options.portletName}/src/main/java/myNpmAngularPortlet/`)
+            this.destinationPath(`./${userVariables.portletName}/src/main/java/myNpmAngularPortlet/`)
         );
     }
 
