@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 
 /* Shared Modules */
-import { SharedModule, BrowserAnimationsModule, TranslateHttpLoader, TranslateModule, TranslateLoader } from '../services/shared.module';
+import { SharedModule, BrowserAnimationsModule, TranslateHttpLoader, TranslateModule, TranslateLoader } from '../../services/shared.module';
 
 /* Prime NG dependencies */
 import { /* PRIME NG MODULES*/ } from 'primeng-wl/primeng';
