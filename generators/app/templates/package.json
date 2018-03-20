@@ -77,7 +77,7 @@
       "css-loader": "^0.28.10"
     },
     "main": "js/angular-loader.js",
-    "name": "<%= title %>",
+    "name": "<%= portletName %>",
     "scripts": {
       "build": "tsc && babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler",
       "serve": "gulp serve"

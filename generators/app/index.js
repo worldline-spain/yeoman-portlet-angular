@@ -1,116 +1,150 @@
-var App = require('yeoman-generator');
-var changeCase = require('change-case')
+const Generator = require('yeoman-generator');
+const changeCase = require('change-case');
 
-/*var snake = toSnake(answers.title, '-');
-var splitted = snake.split("-"); */
+module.exports = class extends Generator {
 
-module.exports = class extends App {
     constructor(args, opts) {
         // Calling the super constructor is important so our generator is correctly set up
         super(args, opts);
-    
-        /*this.argument('title', { type: String, required: true});
-        this.argument('bundle', { type: String, required: true});*/
-      }
+        this.argument(
+            'portletName',
+            {
+                type: String,
+                required: true
+            }
+        );
+    }
 
-      prompting() {
-          return this.prompt([{
-              type  : 'input',
-              name  : 'title',
-              message   : 'Your project name',
-              default   : this.appname
-          }]).then((answers) => {
-            this.fs.copy(
-                this.templatePath('.'),
-                this.destinationPath('./' + answers.title)
-            );
-            this.fs.copy(
-                this.templatePath('.babelrc'),
-                this.destinationPath('./' + answers.title + '/.babelrc')
-            );
-            this.fs.copy(
-                this.templatePath('.npmbundlerrc'),
-                this.destinationPath('./' + answers.title + '/.npmbundlerrc')
-            );
-            this.fs.copy(
-                this.templatePath('.gitignore'),
-                this.destinationPath('./' + answers.title + '/.gitignore')
-            );
-            this.fs.copy(
-                this.templatePath('.editorconfig'),
-                this.destinationPath('./' + answers.title + '/.editorconfig')
-            );
-            this.fs.copy(
-                this.templatePath('gulpfile.js'),
-                this.destinationPath('./' + answers.title + '/gulpfile.js')
-            );
-            this.fs.copy(
-                this.templatePath('src/main/java/myNpmAngularPortlet/constants/'),
-                this.destinationPath('./' + answers.title+'/src/main/java/'+ changeCase.pathCase(answers.title)+'/')  
-            ); 
-            this.fs.copy(
-                this.templatePath('src/main/java/myNpmAngularPortlet/portlet/'),
-                this.destinationPath('./' + answers.title +'/src/main/java/'+ changeCase.pathCase(answers.title) +'/')  
-            ); 
-            this.fs.delete(
-                this.destinationPath('./' + answers.title+'/src/main/java/myNpmAngularPortlet/')
-            );
-            this.fs.copyTpl(
-                this.templatePath('bnd.bnd'),
-                this.destinationPath('./' + answers.title+'/bnd.bnd'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('package-lock.json'),
-                this.destinationPath('./' + answers.title+'/package-lock.json'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/angular-loader.ts'),
-                this.destinationPath('./' + answers.title+'/src/main/resources/META-INF/resources/js/angular-loader.ts'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/resources/content/Language.properties'),
-                this.destinationPath('./' + answers.title+'/src/main/resources/content/Language.properties'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('package.json'),
-                this.destinationPath('./' + answers.title+'/package.json'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/view.jsp'),
-                this.destinationPath('./' + answers.title+'/src/main/resources/META-INF/resources/view.jsp'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title)}
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.ts'),
-                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.component.ts'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/resources/META-INF/resources/js/app/app.module.ts'),
-                this.destinationPath('./' + answers.title +'/src/main/resources/META-INF/resources/js/app/app.module.ts'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title) }
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/java/myNpmAngularPortlet/portlet/MyNpmAngularPortlet.java'),
-                this.destinationPath('./' + answers.title  +'/src/main/java/'+ changeCase.pathCase(answers.title) + '/portlet/' + changeCase.camelCase(answers.title) +'.java'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title)}
-            );
-            this.fs.copyTpl(
-                this.templatePath('src/main/java/myNpmAngularPortlet/constants/MyNpmAngularPortletKeys.java'),
-                this.destinationPath('./' + answers.title  +'/src/main/java/'+ changeCase.pathCase(answers.title) + '/constants/' + changeCase.camelCase(answers.title) +'Keys.java'),
-                { title: answers.title, bundle: changeCase.dotCase(answers.title), camel: changeCase.camelCase(answers.title)}
-            );
-            this.fs.delete(
-                this.destinationPath('./' + answers.title  +'/src/main/java/' + changeCase.pathCase(answers.title) + '/MyNpmAngularPortlet.java')
-            );
-            this.fs.delete(
-                this.destinationPath('./' + answers.title  +'/src/main/java/' + changeCase.pathCase(answers.title) + '/MyNpmAngularPortletKeys.java')
-            );
-          });
-      }
+    initializing() {
+        // Your initialization methods (checking current project state, getting configs, etc)
+    }
+
+    prompting() {
+        // Where you prompt users for options (where you'd call this.prompt())
+    }
+
+    configuring() {
+        // Saving configurations and configure the project (creating .editorconfig files and other metadata files)
+
+        const userVariables = {
+            portletName: this.options.portletName,
+            bundle: changeCase.dotCase(this.options.portletName),
+            camel: changeCase.camelCase(this.options.portletName)
+        }
+
+        //Global copy
+        this.fs.copy(
+            this.templatePath('./'),
+            this.destinationPath(`./${this.options.portletName}`)
+        );
+
+        // Copy dot files
+        this.fs.copy(
+            this.templatePath('.babelrc'),
+            this.destinationPath(`./${this.options.portletName}/.babelrc`)
+        );
+        this.fs.copy(
+            this.templatePath('.editorconfig'),
+            this.destinationPath(`./${this.options.portletName}/.editorconfig`)
+        );
+        this.fs.copy(
+            this.templatePath('.npmbundlerrc'),
+            this.destinationPath(`./${this.options.portletName}/.npmbundlerrc`)
+        );
+        this.fs.copy(
+            this.templatePath('.gitignore'),
+            this.destinationPath(`./${this.options.portletName}/.gitignore`)
+        );
+
+        //Replace user atributes from variable files
+        this.fs.copyTpl(
+            this.templatePath('bnd.bnd'),
+            this.destinationPath(`./${this.options.portletName}/bnd.bnd`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('package-lock.json'),
+            this.destinationPath(`./${this.options.portletName}/package-lock.json`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('package.json'),
+            this.destinationPath(`./${this.options.portletName}/package.json`),
+            userVariables
+        )
+    }
+
+    default() {
+        // If the method name doesn't match a priority, it will be pushed to this group.
+    }
+
+    writing() {
+        // Where you write the generator specific files (routes, controllers, etc)
+
+        const userVariables = {
+            portletName: this.options.portletName,
+            bundle: changeCase.dotCase(this.options.portletName),
+            camel: changeCase.camelCase(this.options.portletName)
+        }
+
+        //Replace user atributes from variable files
+        this.fs.copyTpl(
+            this.templatePath('src/main/resources/META-INF/resources/js/angular-loader.ts'),
+            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/angular-loader.ts`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/resources/content/Language.properties'),
+            this.destinationPath(`./${this.options.portletName}/src/main/resources/content/Language.properties`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/resources/META-INF/resources/view.jsp'),
+            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/view.jsp`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/resources/META-INF/resources/js/app/app.component.ts'),
+            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/app/app.component.ts`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/resources/META-INF/resources/js/app/app.module.ts'),
+            this.destinationPath(`./${this.options.portletName}/src/main/resources/META-INF/resources/js/app/app.module.ts`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/java/myNpmAngularPortlet/portlet/MyNpmAngularPortlet.java'),
+            this.destinationPath(`./${this.options.portletName}/src/main/java/${changeCase.pathCase(this.options.portletName)}/portlet/${changeCase.camelCase(this.options.portletName)}.java`),
+            userVariables
+        );
+        this.fs.copyTpl(
+            this.templatePath('src/main/java/myNpmAngularPortlet/constants/MyNpmAngularPortletKeys.java'),
+            this.destinationPath(`./${this.options.portletName}/src/main/java/${changeCase.pathCase(this.options.portletName)}/constants/${changeCase.camelCase(this.options.portletName)}Keys.java`),
+            userVariables
+        );
+        this.fs.delete(
+            this.destinationPath(`./${this.options.portletName}/src/main/java/myNpmAngularPortlet/`)
+        );
+    }
+
+    conflicts() {
+        // Where conflicts are handled (used internally)
+    }
+
+    install() {
+        // Where installations are run (npm, bower)
+        const elementDir = `${process.cwd()}/${this.options.portletName}`;
+        process.chdir(elementDir);
+
+        this.installDependencies({
+            npm: true,
+            bower: false
+        })
+    }
+
+    end() {
+        // Called last, cleanup, say good bye, etc
+        this.log('Your portlet has been created succesfully.');
+    }
 };

@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 function HttpLoaderFactory(http: Http) {
-	return new TranslateHttpLoader(http, './o/<%= title %>/js/assets/i18n/locale-', '.json');
+	return new TranslateHttpLoader(http, './o/<%= portletName %>/js/assets/i18n/locale-', '.json');
 }
 
 @NgModule({

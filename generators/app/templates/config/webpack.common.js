@@ -3,10 +3,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
+var SOURCE_ROOT = './src/main/resources/META-INF/resources/';
+
 module.exports = {
   entry: {
-    'polyfills': './src/main/resources/META-INF/resources/js/polyfills.ts',
-    'app': './src/main/resources/META-INF/resources/js/debug.loader.ts'
+    'polyfills': helpers.root(SOURCE_ROOT, 'js', 'polyfills.ts'),
+    'app': helpers.root(SOURCE_ROOT, 'js', 'debug.loader.ts')
   },
 
   resolve: {

@@ -4,7 +4,7 @@ import { TranslateService, LiferayService } from '../services/shared.module';
 
 @Component({
 	selector: 'app',
-	templateUrl: '/o/<%= title %>/js/app/app.html'
+	templateUrl: '/o/<%= portletName %>/js/app/app.html'
 })
 export class AppComponent {
 
