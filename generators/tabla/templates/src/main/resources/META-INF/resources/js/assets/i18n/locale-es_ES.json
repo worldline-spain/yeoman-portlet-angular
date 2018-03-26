@@ -1,0 +1,19 @@
+{
+  "example": "ejemplo",
+  "globalFilter":"Filtro global",
+  "vin":"Vin",
+  "regDate":"Fecha matriculación",
+  "from":"Desde",
+  "to":"Hasta",
+  "brand":"Marca",
+  "color":"Color",
+  "status":"Estado",
+  "add":"Añadir",
+  "export":"Exportar",
+  "clean":"Limpiar",
+  "new":"Alta",
+  "old":"Baja",
+  "delete":"Eliminar",
+  "save":"Salvar",
+  "carDetails":"Detalles coche"
+}

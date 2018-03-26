@@ -1,0 +1,137 @@
+<p-table [columns]="cols" [value]="tableFiltered" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)"
+    [paginator]="true" [rows]="10" #dt>
+
+    <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="{{ 'globalFilter' | translate }}" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template>
+
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header | translate}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+
+        <tr>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'vin'" [(ngModel)]="vinFilter" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+                <!-- calendar filter -->
+                <div *ngSwitchCase="'regDate'">
+                    <div>
+                        <div class="ui-g-12">
+                            <label class="ui-widget">{{ 'from' | translate }}</label>
+                            <p-calendar [(ngModel)]="dateFrom" dateFormat="dd/mm/yy" (onSelect)="filterDate(dt)"></p-calendar>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ui-g-12">
+                            <label class="ui-widget">{{ 'to' | translate }}</label>
+                            <p-calendar [(ngModel)]="dateTo" dateFormat="dd/mm/yy" (onSelect)="filterDate(dt)"></p-calendar>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end calendar filter -->
+
+                <p-dropdown *ngSwitchCase="'brand'" [options]="brands" [(ngModel)]="selectedBrand" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                <p-multiSelect *ngSwitchCase="'color'" [options]="colors" [(ngModel)]="selectedColor" [style]="{'width':'100%'}" defaultLabel="All Colors"
+                    (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+
+                <div *ngSwitchCase="'status'" class="ui-g radiobuttons">
+                    <!-- <div class="ui-g-12"><p-radioButton name="group1" value="alta" [(ngModel)]="valStatus" (onClick)="dt.filter($event.value, col.field, 'equals')"></p-radioButton><label class="ui-widget">Alta</label></div>
+                        <div class="ui-g-12"><p-radioButton name="group1" value="baja" [(ngModel)]="valStatus" (onClick)="dt.filter($event.value, col.field, 'equals')"></p-radioButton><label class="ui-widget">Baja</label></div>                 -->
+                    <div class="ui-g-12">
+                        <p-radioButton name="group1" value="alta" [(ngModel)]="valStatus" (ngModelChange)="filterRadioButton(dt)"></p-radioButton>
+                        <label class="ui-widget">{{ 'new' | translate }}</label>
+                        <p-radioButton name="group1" value="baja" [(ngModel)]="valStatus" (ngModelChange)="filterRadioButton(dt)"></p-radioButton>
+                        <label class="ui-widget">{{ 'old' | translate }}</label>
+                    </div>
+
+
+                </div>
+
+            </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <!-- <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td> -->
+            <td *ngFor="let col of columns">
+                <div *ngIf="col.field == 'regDate'; else elseBlock">
+                    {{rowData[col.field] | date: 'dd/MM/yyyy' }}
+                </div>
+                <ng-template #elseBlock>{{rowData[col.field]}}</ng-template>
+            </td>
+
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+            <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="{{ 'add' | translate }}"></button>
+            <button type="button" pButton icon="fa-file-o" iconPos="left" label="{{ 'export' | translate }}" (click)="dt.exportCSV()"></button>
+            <button type="button" pButton icon="fa-refresh" label="{{ 'clean' | translate }}" (click)="clean(dt)" style="float:right"></button>
+        </div>
+    </ng-template>
+</p-table>
+<p-dialog header="{{ 'carDetails' | translate }}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="600">
+    <div class="ui-g ui-fluid" *ngIf="car">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">{{ 'vin' | translate }}</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="vin" [(ngModel)]="car.vin" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="regDate">{{ 'regDate' | translate }}</label>
+            </div>
+            <div class="ui-g-8">
+                <p-calendar [(ngModel)]="car.regDate"></p-calendar>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="brand">{{ 'brand' | translate }}</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="brand" [(ngModel)]="car.brand" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">{{ 'color' | translate }}</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="color" [(ngModel)]="car.color" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="status">{{ 'status' | translate }}</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="status" [(ngModel)]="car.status" />
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="delete()" label="{{ 'delete' | translate }}"></button>
+            <button type="button" pButton icon="fa-check" (click)="save()" label="{{ 'save' | translate }}"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<p-footer></p-footer>

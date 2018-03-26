@@ -1,0 +1,19 @@
+{
+    "example": "example",
+    "globalFilter":"Global Filter",
+    "vin":"Vin",
+    "regDate":"Registration date",
+    "from":"From",
+    "to":"To",
+    "brand":"Brand",
+    "color":"Color",
+    "status":"Status",
+    "add":"Add",
+    "export":"Export",
+    "clean":"Clean",
+    "new":"New",
+    "old":"Old",
+    "delete":"Delete",
+    "save":"Save",
+    "carDetails":"Car details"
+}

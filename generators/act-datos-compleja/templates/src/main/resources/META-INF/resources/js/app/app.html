@@ -1,0 +1,128 @@
+
+
+<p-growl baseZIndex="1034" [value]="msgs"></p-growl>
+    
+    
+<form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+    <p-panel header="{{'userData' | translate }}">  
+        
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">            
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    {{'userid' | translate }}
+                </div>
+                <div class="ui-grid-col-4">
+                    <input pInputText type="text" formControlName="userId" />
+                </div>
+
+                <div class="ui-grid-col-2">
+                    {{'user' | translate }}
+                </div>
+                <div class="ui-grid-col-4">
+                    <input pInputText type="text" formControlName="user" />
+                </div>
+            </div>
+        </div>
+    
+        <p-tabView>
+            <p-tabPanel header="{{'datamain' | translate }}">
+
+                <p-panel header="{{'mydata' | translate }}">
+                    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                {{'firstName' | translate }}
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="firstname" placeholder="{{'required' | translate }}"/>
+                            </div>
+                            <div class="ui-grid-col-4">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['firstname'].valid&&userform.controls['firstname'].dirty">
+                                    <i class="fa fa-close"></i>
+                                    {{'firtsNameVal' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                {{'lastName' | translate }}
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="lastname" placeholder="{{'required' | translate }}"/>
+                            </div>
+                            <div class="ui-grid-col-4">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['lastname'].valid&&userform.controls['lastname'].dirty">
+                                    <i class="fa fa-close"></i>
+                                    {{'lastNameVal' | translate }} 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                {{'password' | translate }}
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="password" formControlName="password" placeholder="{{'requiredMin6' | translate }}"/>
+                            </div>
+                            <div class="ui-grid-col-4">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty">
+                                    <i class="fa fa-close"></i>
+                                    <span *ngIf="userform.controls['password'].errors['required']">{{'passwordVal' | translate }}</span>
+                                    <span *ngIf="userform.controls['password'].errors['minlength']">{{'passwordLongVal' | translate }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                {{'description' | translate }}
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <textarea pInputTextarea type="text" formControlName="description"></textarea>
+                            </div>
+                            <div class="ui-grid-col-4"></div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2">
+                                {{'gender' | translate }} 
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <p-dropdown [options]="genders" formControlName="gender" [autoWidth]="false"></p-dropdown>
+                            </div>
+                            <div class="ui-grid-col-4">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['gender'].valid&&userform.controls['gender'].dirty">
+                                    <i class="fa fa-close"></i>
+                                    {{'genderVal' | translate }} 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"></div>
+                            <div class="ui-grid-col-2">
+                                    <button pButton type="submit" label="{{'submit' | translate }}" [disabled]="!userform.valid"></button>                            
+                            </div>
+                            <div class="ui-grid-col-2">
+                                <button pButton type="reset" label="{{'cancel' | translate }}" [disabled]="userform.pristine"></button>
+                            </div>
+                            <div class="ui-grid-col-4"></div>
+                        </div>
+                        <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                            {{'formSubmitted' | translate }} 
+                            <br>
+                            {{diagnostic}}
+                        </div>
+                    </div>
+                </p-panel>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'data2' | translate }}">
+                Content 2
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'data3' | translate }}">
+                Content 3    
+            </p-tabPanel>
+
+        </p-tabView>  
+    </p-panel>  
+</form>
+    
