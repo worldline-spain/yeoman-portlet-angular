@@ -54,8 +54,12 @@ module.exports = class extends Generator {
             this.destinationPath(`./${userVariables.portletName}/.npmbundlerrc`)
         );
         this.fs.copy(
-            this.templatePath('.gitignore'),
+            this.templatePath('gitignore'),
             this.destinationPath(`./${userVariables.portletName}/.gitignore`)
+        );
+
+        this.fs.delete(
+            this.destinationPath(`./${userVariables.portletName}/gitignore`)
         );
 
         //Replace user atributes from variable files
