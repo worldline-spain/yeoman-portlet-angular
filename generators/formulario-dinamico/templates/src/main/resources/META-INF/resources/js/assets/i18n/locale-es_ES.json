@@ -1,0 +1,22 @@
+{
+    "example": "ejemplo",
+    "title": "CALCULADOR DEL COSTE DEL ABSENTISMO",
+    "message":"A través de nuestro Calculador del coste del absentismo odrá conocer el coste directo del absentismo laboralde su empresa, tan sólo introduciendo los datos que solicitamos a continuación.",
+    "typeContingency":"TIPO DE CONTINGENCIA",
+    "professional":"Profesional",
+    "common":"Común",
+    "messageContingency":"Indique si se trata de una baja de carácter profesional o no",
+    "typeCalculation":"TIPO DE CALCULO",
+    "individual":"Individual",
+    "collective":"Colectivo",
+    "messageCalculation":"Si el calculo es para una persona en concreto o para un grupo de trabajadores",
+    "salarySupplement":"COMPLEMENTO SALARIAL",
+    "withoutSupplement":"Sin complemento",
+    "withSupplement":"Con complemento",
+    "messageSalary":"Indique si en su empresa se pagan complementos en caso de baja",
+    "numerDays":"NÚMERO DE DÍAS",
+    "dailyRegulatoryBase":"BASE REGULADORA DIARIA",
+    "print":"Imprimir",
+    "calculate":"Calcular",
+    "totalCost":"COSTE TOTAL para la empresa XXXX €"
+}

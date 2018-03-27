@@ -1,0 +1,22 @@
+{
+  "example": "example",
+  "title": "CALCULATOR OF THE COST OF ABSENTEEISM",
+  "message":"Through our Absenteeism Cost Calculator you will know the direct cost of absenteeism from your company, just by entering the data that we request below.",
+  "typeContingency":"TYPE OF CONTINGENCY",
+  "professional":"Professional",
+  "common":"Common",
+  "messageContingency":"Indicate whether it is a professional downturn or not",
+  "typeCalculation":"TYPE OF CALCULATION",
+  "individual":"Individual",
+  "collective":"Collective",
+  "messageCalculation":"If the calculation is for a specific person or for a group of workers",
+  "salarySupplement":"Salary Supplement",
+  "withoutSupplement":"Without supplement",
+  "withSupplement":"With supplement",
+  "messageSalary":"Indicate if your company pays supplements in case of withdrawal",
+  "numerDays":"NUMBER OF DAYS",
+  "dailyRegulatoryBase":"DAILY REGULATOR BASE",
+  "print":"Print",
+  "calculate":"Calculate",
+  "totalCost":"TOTAL COST for the company XXXX €"
+}

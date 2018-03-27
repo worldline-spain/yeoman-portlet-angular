@@ -1,0 +1,100 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+      <div class="ui-g-12">
+          <h3 class="first">{{ 'title' | translate }}</h3>
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12">
+        {{ 'message' | translate }}
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-6">
+          <h5 class="first">{{ 'typeContingency' | translate }}</h5>
+      </div>
+      <div class="ui-g-12 ui-md-6">
+          <div class="ui-g-6">
+              <p-radioButton name="groupname" label="{{ 'professional' | translate }}" value="val1" [(ngModel)]="selectedValue"></p-radioButton>
+          </div>
+          <div class="ui-g-6">
+              <p-radioButton name="groupname" label="{{ 'common' | translate }}" value="val2" [(ngModel)]="selectedValue"></p-radioButton>
+          </div>
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-12">
+        {{ 'messageContingency' | translate }}
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-6">
+          <h5 class="first">{{ 'typeCalculation' | translate }}</h5>
+      </div>
+      <div class="ui-g-12 ui-md-6">
+          <div class="ui-g-6">
+              <p-radioButton name="groupname2" label="{{ 'individual' | translate }}" value="val1" [(ngModel)]="selectedValue2"></p-radioButton>
+          </div>
+          <div class="ui-g-6">
+              <p-radioButton name="groupname2" label="{{ 'collective' | translate }}" value="val2" [(ngModel)]="selectedValue2"></p-radioButton>
+          </div>
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-12">
+          {{ 'messageCalculation' | translate }}
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-6">
+          <h5 class="first"> {{ 'salarySupplement' | translate }}</h5>
+      </div>
+      <div class="ui-g-12 ui-md-6">
+          <div class="ui-g-6">
+              <p-radioButton name="groupname3" label="{{ 'withoutSupplement' | translate }}" value="val1" [(ngModel)]="selectedValue3"></p-radioButton>
+          </div>
+          <div class="ui-g-6">
+              <p-radioButton name="groupname3" label="{{ 'withSupplement' | translate }}" value="val2" [(ngModel)]="selectedValue3"></p-radioButton>
+          </div>
+      </div>
+  </div>
+  <div class="ui-g-12">
+      <div class="ui-g-12 ui-md-12">
+          {{ 'messageSalary' | translate }}
+      </div>
+  </div>
+  <div class="ui-g-12 ui-md-6 align-row-center">
+      <div class="ui-g">
+          <h5 class="first">{{ 'numerDays' | translate }}</h5>
+      </div>
+      <div class="ui-g">
+          <input id="input" type="number" size="30" pInputText [(ngModel)]="text">
+      </div>
+  </div>
+  <div class="ui-g-12 ui-md-6 align-row-center">
+      <div class="ui-g">
+          <h5 class="first">{{ 'dailyRegulatoryBase' | translate }}</h5>
+      </div>
+      <div class="ui-g">
+          <input id="input" type="number" size="30" pInputText [(ngModel)]="text2">
+      </div>
+  </div>
+
+
+  <div class="ui-g-6 print-button">
+      <div class="ui-g">
+          <button pButton type="button" (click)="count()" label="{{ 'print' | translate }}" class="ui-button-warning button"></button>
+      </div>
+  </div>
+  <div class="ui-g-6 calculate-button">
+      <div class="ui-g">
+          <button pButton type="button" (click)="count()" label="{{ 'calculate' | translate }}" class="ui-button-warning button"></button>
+      </div>
+  </div>
+
+  <div class="ui-g-12 align-row-center">
+      <div class="ui-g">
+          <h3>{{ 'totalCost' | translate }}</h3>
+      </div>
+  </div>
+</div>
