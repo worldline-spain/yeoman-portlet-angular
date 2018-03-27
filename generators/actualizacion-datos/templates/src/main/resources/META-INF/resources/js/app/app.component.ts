@@ -5,7 +5,7 @@ import { Message, SelectItem } from 'primeng-wl/api';
 
 @Component({
 	selector: 'app',
-	templateUrl: '/o/actualizacion-datos/js/app/app.html'
+	templateUrl: '/o/<%= portletName %>/js/app/app.html'
 })
 
 export class AppComponent {

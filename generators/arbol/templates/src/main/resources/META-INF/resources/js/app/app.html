@@ -1,0 +1,13 @@
+<p-card >
+  <div style="text-align: right">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" [(ngModel)]="treeSearch" pInputText size="50" placeholder="Global Filter" (input)="search()">
+  </div>
+
+  <p-treeTable [value]="treefiltered">
+      <p-header>{{'treetitle' | translate }}  </p-header>
+      <p-column field="name" header= "{{ 'name' | translate }}" ></p-column>
+      <p-column field="size" header= "{{ 'size' | translate }}" ></p-column>
+      <p-column field="type" header= "{{ 'type' | translate }}" ></p-column>
+  </p-treeTable>
+</p-card>
