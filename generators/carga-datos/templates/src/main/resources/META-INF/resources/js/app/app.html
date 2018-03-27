@@ -1,0 +1,60 @@
+
+
+<p-growl [value]="msgs"></p-growl>
+
+<p-panel header="{{'selectType' | translate }}">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-1">
+            {{'type' | translate }} 
+        </div>
+        <div class="ui-grid-col-5">
+            <p-dropdown [options]="listItems"  ></p-dropdown>
+        </div>
+    </div>
+
+
+</p-panel>
+
+<p-panel header="{{'selectCompany' | translate }}">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-1">
+            {{'CIF' | translate }}
+        </div>
+        <div class="ui-grid-col-5">
+            <input pInputText type="text"  placeholder=""/>
+            <p-button icon="fa fa-fw fa-search"></p-button>
+        </div>
+        
+    
+        <div class="ui-grid-col-1">
+            {{'socialName' | translate }} 
+        </div>
+        <div class="ui-grid-col-5">
+            <input pInputText type="text"  placeholder=""/>
+        </div>
+    </div>    
+
+</p-panel>
+
+
+<p-panel header="{{'selectFile' | translate }}">
+    <!-- falta indicar la url dónde subir el fichero -->
+    <p-fileUpload name="demo[]" url="http://google.com" (onUpload)="onUpload($event)" 
+            multiple="multiple" maxFileSize="1000000">
+        <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+        </ng-template>        
+    </p-fileUpload>
+    
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-2">
+            {{'fileContent' | translate }} 
+        </div>
+        <div class="ui-grid-col-6">
+            <p-dropdown [options]="listItems"  ></p-dropdown>
+        </div>
+    </div>
+
+</p-panel>
