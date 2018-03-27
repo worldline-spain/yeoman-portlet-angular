@@ -1,0 +1,108 @@
+
+<p-card>
+
+    <p-growl [value]="msgs" baseZIndex="1034"></p-growl>
+     
+    <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+        <p-panel header="{{'sentEmail' | translate }}">
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'name' | translate }}
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText type="text" formControlName="name" placeholder="{{'required' | translate }}"/>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty">
+                            <i class="fa fa-close"></i>
+                            {{'nameVal' | translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'entity' | translate }}
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText type="text" formControlName="entity" placeholder="{{'required' | translate }}"/>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['entity'].valid&&userform.controls['entity'].dirty">
+                            <i class="fa fa-close"></i>
+                            {{'entityVal' | translate }} 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'email' | translate }}
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText type="text" formControlName="email" placeholder="{{'required' | translate }}"/>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty">
+                            <i class="fa fa-close"></i>
+                            {{'emailVal' | translate }} 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'phone' | translate }}
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText type="text" formControlName="phone" />
+                    </div>
+                    <div class="ui-grid-col-4"></div>
+                </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'detail' | translate }}
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <textarea pInputTextarea type="text" formControlName="detail" placeholder="{{'required' | translate }}"></textarea>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['detail'].valid&&userform.controls['detail'].dirty">
+                            <i class="fa fa-close"></i>
+                            {{'detailVal' | translate }} 
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        {{'area' | translate }} 
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <p-dropdown [options]="areas" formControlName="area" ></p-dropdown>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['area'].valid&&userform.controls['area'].dirty">
+                            <i class="fa fa-close"></i>
+                            {{'areaVal' | translate }} 
+                        </div>
+                    </div>
+                </div>
+              
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"></div>
+                    <div class="ui-grid-col-2">
+                            <button pButton type="submit" label="{{'submit' | translate }}" [disabled]="!userform.valid"></button>                            
+                    </div>
+                    <div class="ui-grid-col-2">
+                        <button pButton type="reset" label="{{'clean' | translate }}" [disabled]="userform.pristine"></button>
+                    </div>
+                    <div class="ui-grid-col-4"></div>
+                </div>
+            </div>
+        </p-panel>
+    </form>
+    
+    </p-card>

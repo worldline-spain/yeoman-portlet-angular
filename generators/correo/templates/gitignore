@@ -1,0 +1,22 @@
+.gradle/
+build/
+node_modules/
+target/
+
+.DS_STORE
+
+node_modules
+bower_components
+
+# Include when developing application packages.
+pubspec.lock
+.c9
+.idea/
+.settings/
+*.swo
+modules/.settings
+.vscode
+modules/.vscode
+
+# Ignore npm/yarn debug log
+npm-debug.log

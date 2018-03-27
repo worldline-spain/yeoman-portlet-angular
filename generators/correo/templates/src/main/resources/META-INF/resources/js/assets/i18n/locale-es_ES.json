@@ -1,0 +1,17 @@
+{
+    "sentEmail": "Enviar correo",   
+    "name":"* Nombre y apellidos",
+    "entity": "* Entidad",
+    "email": "* Dirección de correo electrónico",
+    "phone": "Teléfono",
+    "area": "* Área",
+    "detail": "* Introduzca el detalle de su consulta",
+    "nameVal":"Nombre requerido",
+    "entityVal": "Entidad requerida",
+    "detailVal": "Detalle requerido",
+    "areaVal":"Área requerida",
+    "emailVal":"Correo requerido",
+    "submit":"Enviar",
+    "clean":"Limpiar",    
+    "required":"Requerido"
+}

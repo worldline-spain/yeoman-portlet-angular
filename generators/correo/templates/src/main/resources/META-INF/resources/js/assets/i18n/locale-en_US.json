@@ -1,0 +1,17 @@
+{ 
+    "sentEmail": "Send email",   
+    "name":"* Name",
+    "entity": "* Entity",
+    "email": "* Email adress",
+    "phone": "Phone",
+    "area": "* Area",
+    "detail": "* Enter the detail of your query",
+    "nameVal":"Name required",
+    "entityVal": "Entity required",
+    "detailVal": "Detail required",
+    "areaVal":"Area required",    
+    "emailVal":"Email required",    
+    "submit":"Send",
+    "clean":"Clean",    
+    "required":"Required"
+}
