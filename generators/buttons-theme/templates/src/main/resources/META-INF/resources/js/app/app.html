@@ -1,0 +1,29 @@
+<!-- Button -->
+<p-card title="Buttons">
+
+    <p-button (onClick)="count()" label="Click"></p-button>
+    
+    <p-button (onClick)="count()" icon="fa fa-fw fa-check" label="Click"></p-button>
+    
+    <p-button (onClick)="count()" icon="fa fa-fw fa-check" iconPos="right" label="Click"></p-button>
+    
+    <p-button (onClick)="count()" icon="fa fa-fw fa-close"></p-button>
+    
+    <p-button (onClick)="count()" icon="fa fa-fw fa-check" [disabled]="true" label="Disabled"></p-button>
+        
+    Number of clicks: {{clicks}}  
+</p-card>
+<br>
+<br>  
+
+
+<p-card title="Split button">
+    <p-messages [(value)]="msgs"></p-messages>  
+
+    <p-splitButton label="Save" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-secondary"></p-splitButton>
+    <p-splitButton label="Save" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-success"></p-splitButton>
+    <p-splitButton label="Save" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-info"></p-splitButton>
+    <p-splitButton label="Save" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-warning"></p-splitButton>
+    <p-splitButton label="Save" icon="fa-check" (onClick)="save()" [model]="items" styleClass="ui-button-danger"></p-splitButton>
+
+</p-card>
