@@ -8,7 +8,7 @@
             <div class="ui-grid ui-grid-responsive">
                 <div class="ui-grid-row">
                     <div class="ui-grid-col-12">
-                        <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png" width="60">
+                        <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png" width="60">
                     </div>
                 </div>
                 <div class="ui-grid-row">
@@ -45,7 +45,7 @@
         <ng-template let-car pTemplate="item">
             <div style="padding:3px" class="ui-g-12 ui-md-3">
                 <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-                    <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png" width="60">
+                    <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png" width="60">
                     <div class="car-detail">{{car.year}} - {{car.color}}</div>
                     <hr class="ui-widget-content" style="border-top:0">
                     <i class="fa fa-search" (click)="selectCar(car)" style="cursor:pointer"></i>
@@ -59,7 +59,7 @@
         <div class="ui-grid ui-grid-responsive ui-grid-pad" *ngIf="selectedCar" style="font-size:16px;text-align:center;padding:20px">
             <div class="ui-grid-row">
                 <div class="ui-grid-col-12" style="text-align:center">
-                    <img src="/o/test2-integracion-tema/assets/images/{{selectedCar.brand}}.png">
+                    <img src="/o/<%= portletName %>/js/assets/images/{{selectedCar.brand}}.png">
                 </div>
             </div>
             <div class="ui-grid-row">
@@ -93,7 +93,7 @@
         <ng-template let-car pTemplate="item">
             <div class="ui-g ui-fluid car-item">
                 <div class="ui-g-12 ui-md-3" style="text-align:center">
-                    <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png">
+                    <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png">
                 </div>
                 <div class="ui-g-12 ui-md-9 car-details">
                     <div class="ui-g">
@@ -127,7 +127,7 @@
         <ng-template let-car pTemplate="item">
             <div class="ui-g car-item">
                 <div class="ui-g-12 ui-md-3">
-                    <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png">
+                    <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png">
                 </div>
                 <div class="ui-g-12 ui-md-9">
                     <div class="ui-g">
@@ -191,7 +191,7 @@
         dragdrop="true" dragdropScope="cars">
         <ng-template let-car pTemplate="item">
             <div class="ui-helper-clearfix">
-                <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+                <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
                 <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>
             </div>
         </ng-template>
@@ -269,7 +269,7 @@
             sourceFilterPlaceholder="Search by brand" targetFilterPlaceholder="Search by brand">
             <ng-template let-car pTemplate="item">
                 <div class="ui-helper-clearfix">
-                    <img src="/o/test2-integracion-tema/assets/images/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+                    <img src="/o/<%= portletName %>/js/assets/images/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48">
                     <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>
                 </div>
             </ng-template>

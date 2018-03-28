@@ -132,6 +132,11 @@ module.exports = class extends Generator {
             userVariables
         );
         this.fs.copyTpl(
+            this.templatePath('src/main/resources/META-INF/resources/js/app/app.html'),
+            this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/js/app/app.html`),
+            userVariables
+        );
+        this.fs.copyTpl(
             this.templatePath('src/main/resources/META-INF/resources/js/app/app.module.ts'),
             this.destinationPath(`./${userVariables.portletName}/src/main/resources/META-INF/resources/js/app/app.module.ts`),
             userVariables
