@@ -1,0 +1,38 @@
+ <!-- ChartBar  -->
+ <p-card title="Bar">
+    <p-chart type="bar" [data]="data"></p-chart>
+</p-card>
+<br>
+
+ <!-- Doughnut  -->
+<p-card title="Doughnut">
+    <p-chart type="doughnut" [data]="dataDoughnut"></p-chart>
+</p-card>
+<br>
+
+<!--  Line -->
+<p-card title="Line">
+    <p-growl [value]="msgs"></p-growl>
+
+    <p-chart type="line" [data]="dataLine" (onDataSelect)="selectData($event)"></p-chart>
+</p-card>
+<br>
+
+<!--  Polar Area -->
+<p-card title="Polar Area">
+    <p-chart type="polarArea" [data]="data2"></p-chart>    
+</p-card>
+<br>
+
+<!--  Pie Area -->
+<p-card title="Pie Area">
+    <p-chart type="pie" [data]="dataPie"></p-chart>
+</p-card>
+<br>
+
+<!--  Radar -->
+<p-card title="Radar">
+    <p-chart type="radar" [data]="dataRadar"></p-chart>
+</p-card>
+<br>
+    
