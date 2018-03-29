@@ -1,0 +1,7 @@
+{
+    "preset": "liferay-npm-bundler-preset-angular",
+    "exclude": {
+        "chart.js": ["gulpfile.js"],
+        "mkdirp": ["bin/**/*"]
+    }
+}

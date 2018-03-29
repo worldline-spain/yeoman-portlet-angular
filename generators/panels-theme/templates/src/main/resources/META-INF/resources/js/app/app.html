@@ -1,0 +1,87 @@
+<p-card title="Accordion">
+  <p-accordion>
+      <p-accordionTab header="Header 1">
+          {{caption}}
+      </p-accordionTab>
+      <p-accordionTab header="Header 2">
+          {{caption}}
+      </p-accordionTab>
+      <p-accordionTab header="Header 3">
+          {{caption}}
+      </p-accordionTab>
+  </p-accordion>
+</p-card>
+<br><br>
+<p-card title="Fieldset">
+  <p-fieldset legend="Header" [toggleable]="true">
+      {{caption}}
+  </p-fieldset>
+</p-card>
+<br><br>
+<p-card title="scrollPanel">
+  <p-scrollPanel [style]="{width: '50%', height: '200px'}">
+      The story begins as Don Vito Corleone, the head of a
+      New York Mafia family, oversees his daughter's wedding.
+      His beloved son Michael has just come home from the war,
+      but does not intend to become part of his father's business.
+      Through Michael's life the nature of the family business
+      becomes clear. The business of the family is just like the
+      head of the family, kind and benevolent to those who give respect,
+      but given to ruthless violence whenever anything stands against the
+      good of the family. The story begins as Don Vito Corleone, the head
+      of a New York Mafia family, oversees his daughter's wedding. His beloved
+      son Michael has just come home from the war, but does not intend to
+      become part of his father's business. Through Michael's life the nature
+      of the family business becomes clear. The business of the family is just
+      like the head of the family, kind and benevolent to those who give respect,
+      but given to ruthless violence whenever anything stands against the good of the family.
+  </p-scrollPanel>
+</p-card>
+<br><br>
+<p-card title="tabPanel">
+  <p-tabView>
+      <p-tabPanel header="Header 1">
+          Header 1
+      </p-tabPanel>
+      <p-tabPanel header="Header 2">
+          Header 2
+      </p-tabPanel>
+      <p-tabPanel header="Header 3">
+          Header 3
+      </p-tabPanel>
+  </p-tabView>
+</p-card>
+<br><br>
+<p-card title="Panel">
+  <p-panel header="Title">
+      {{caption}}
+  </p-panel>
+</p-card>
+<br><br>
+<p-card title="grid">
+  <div class="ui-g">
+      <div class="ui-g-6">Col1</div>
+      <div class="ui-g-6">Col2</div>
+      <div class="ui-g-6">Col3</div>
+      <div class="ui-g-6">Col4</div>
+  </div>
+</p-card>
+<br><br>
+<p-card title="toolbar">
+  <p-toolbar>
+      <div class="ui-toolbar-group-left">
+          <button pButton type="button" label="New" icon="fa-plus"></button>
+          <button pButton type="button" label="Open" icon="fa-folder-open"></button>
+
+          <i class="fa fa-bars"></i>
+      </div>
+
+      <div class="ui-toolbar-group-right">
+          <button pButton type="button" icon="fa-search"></button>
+          <i class="fa fa-bars"></i>
+          <button pButton type="button" icon="fa-refresh"></button>
+          <button pButton type="button" icon="fa-trash"></button>
+      </div>
+  </p-toolbar>
+</p-card>
+<br><br>
