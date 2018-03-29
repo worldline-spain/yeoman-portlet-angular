@@ -45,7 +45,7 @@ gulp.task('compile', function () {
 gulp.task('build', ['scripts', 'assets'], function () {});
 gulp.task('scripts', ['compile'], function () {});
 gulp.task('assets', function () {
-  gulp.src('src/main/resources/META-INF/resources/js/**/*.{html,json,png,jpe}')
+  gulp.src('src/main/resources/META-INF/resources/js/**/*.{html,json,png,jpg}')
     .pipe(gulp.dest('www/'));
 });
 
