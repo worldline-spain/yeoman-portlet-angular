@@ -1,0 +1,323 @@
+<!-- Addons -->
+<p-card title="Addons">
+    <div class="ui-g">  
+        <div class="ui-g-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">
+                    <i class="fa fa-user"></i>
+                </span>
+                <input type="text" pInputText placeholder="Username">
+            </div>
+        </div>
+
+        <div class="ui-g-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">$</span>
+                <input type="text" pInputText placeholder="Price">
+                <span class="ui-inputgroup-addon">.00</span>
+            </div>
+        </div>
+
+        <div class="ui-g-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">www</span>
+                <input type="text" pInputText placeholder="Website">
+            </div>
+        </div>
+    </div>
+</p-card>
+<br>
+<br>
+
+<!-- Multiple addons -->
+<p-card title="Multiple Addons">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">
+                    <i class="fa fa-credit-card"></i>
+                </span>
+                <span class="ui-inputgroup-addon">
+                    <i class="fa fa-cc-visa"></i>
+                </span>
+                <input type="text" pInputText placeholder="Price">
+                <span class="ui-inputgroup-addon">$</span>
+                <span class="ui-inputgroup-addon">.00</span>
+            </div>
+        </div>
+    </div>
+</p-card>
+<br>
+<br>
+
+<!-- button addons -->
+<p-card title="Button Addons">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">                
+                <button pButton type="button" label="Search"></button>
+                <input type="text" pInputText placeholder="Keyword">
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <input type="text" pInputText placeholder="Keyword">                         
+                <button pButton type="button" icon="fa-superpowers" class="ui-button-secondary"></button>  
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">               
+                <button pButton type="button" icon="fa-check" class="ui-button-success"></button>    
+                <input type="text" pInputText placeholder="Vote">                                
+                <button pButton type="button" icon="fa-close" class="ui-button-danger"></button> 
+            </div>
+        </div>
+    </div>
+</p-card>
+<br>
+<br> 
+
+
+<!-- Checkbox and RadioButton  -->
+<p-card title="Checkbox and RadioButton">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">
+                    <p-checkbox></p-checkbox>
+                </span>
+                <input type="text" pInputText placeholder="Username">
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <input type="text" pInputText placeholder="Price">
+                <span class="ui-inputgroup-addon">
+                    <p-radioButton></p-radioButton>
+                </span>
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">
+                    <p-checkbox></p-checkbox>
+                </span>
+                <input type="text" pInputText placeholder="Website">
+                <span class="ui-inputgroup-addon">
+                    <p-radioButton></p-radioButton>
+                </span>
+            </div>
+        </div>
+    </div>
+</p-card>
+<br>
+<br>
+<!-- autocomplete -->
+<p-card title="Autocomplete Basic">
+    <p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountries" (completeMethod)="filterCountries($event)" [size]="30"
+        placeholder="Countries" [minLength]="1"></p-autoComplete>
+    <span style="margin-left:10px">Country: {{country ? country ||country : 'none'}}</span>
+</p-card>
+<br>
+<br>
+
+<!-- autocomplete advanced -->
+<p-card title="Autocomplete + dropdown">
+    <p-autoComplete [(ngModel)]="countryAdv" [suggestions]="filteredCountriesAdv" (completeMethod)="filterCountriesAdv($event)"
+        [size]="30" placeholder="Countries" [minLength]="1" [dropdown]="true"></p-autoComplete>
+    <span style="margin-left:10px">Country: {{countryAdv ? countryAdv ||countryAdv : 'none'}}</span>
+</p-card>
+<br>
+<br>
+
+<!-- calendar -->
+<p-card title="Calendar">
+    <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+    <span style="margin-left:35px">{{date3|date}}</span>
+</p-card>
+<br>
+<br>
+
+<!-- Checkbox -->
+<p-card title="Checkbox">
+    <div class="ui-g" style="width:250px;margin-bottom:10px">
+        <div class="ui-g-12">
+            <p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+        </div>
+        <div class="ui-g-12">
+            <p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+        </div>
+        <div class="ui-g-12">
+            <p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+        </div>
+    </div>
+</p-card>
+<br>
+<br>
+
+<!-- Chips -->
+<p-card title="Chips">
+    <p-chips [(ngModel)]="values1"></p-chips>
+</p-card>
+<br>
+<br>
+
+<!-- ColorPicker -->
+<p-card title="Color Picker">
+    <p-colorPicker [(ngModel)]="color1" inline="true"></p-colorPicker>
+
+    <p style="margin-top:.5em">Selected Color:
+        <span style="display:inline-block;width:32px;height:32px;vertical-align:middle" [style.backgroundColor]="color1"></span> {{color1}} </p>
+</p-card>
+<br>
+<br>
+
+<!-- Dropdown : NO CARGA VALORES, error animaciones -->
+<p-card title="Dropdown">
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"></p-dropdown>
+    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+</p-card>
+<br>
+<br>
+
+<p-card title="Input Switch">
+    <p-inputSwitch [(ngModel)]="checked1"></p-inputSwitch>
+</p-card>
+<br>
+<br>
+
+<!-- Input text -->
+<p-card title="Input Text">
+    <input id="input" type="text" size="30" pInputText [(ngModel)]="text">
+    <span id="text">{{text}}</span>
+</p-card>
+<br>
+<br>
+
+<!-- Input text Area -->
+<p-card title="Input Text Area">
+    <textarea rows="5" cols="30" pInputTextarea></textarea>
+</p-card>
+<br>
+<br>
+
+<!-- List Box -->
+<p-card title="List Box">
+    <p-listbox [options]="cities" [(ngModel)]="selectedCity" [style]="{'width':'200px'}" optionLabel="name"></p-listbox>
+    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+</p-card>
+<br>
+<br>
+
+<!-- Editor -->
+<p-card title="Editor">
+    <p-editor [(ngModel)]="textEditor">
+        <p-header>
+            <span class="ql-formats">
+                <button class="ql-bold" aria-label="Bold"></button>
+                <button class="ql-italic" aria-label="Italic"></button>
+                <button class="ql-underline" aria-label="Underline"></button>
+            </span>
+        </p-header>
+    </p-editor>
+</p-card>
+<br>
+<br>
+
+
+<!-- Multi Select -->
+<p-card title="Multi Select">
+    <p-multiSelect [options]="cars" [(ngModel)]="selectedCars1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+    <p>Selected Cars: {{selectedCars1}}</p>
+</p-card>
+<br>
+<br>
+
+<!-- Mask -->
+<p-card title="Mask">
+    <span>Basic</span>
+    <p-inputMask mask="99-999999" [(ngModel)]="val1" placeholder="99-999999"></p-inputMask>
+</p-card>
+<br>
+<br>
+
+<!-- Password -->
+<p-card title="Password">
+    <input pPassword type="password" />
+</p-card>
+<br>
+<br>
+
+<!-- Radio Button -->
+<p-card title="Radio button">
+    <div class="ui-g" style="width:250px;margin-bottom:10px">
+        <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val2" inputId="opt1"></p-radioButton>
+        </div>
+        <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 2" label="Option 2" [(ngModel)]="val2" inputId="opt2"></p-radioButton>
+        </div>
+        <div class="ui-g-12">
+            <p-radioButton name="group1" value="Option 3" label="Option 3" [(ngModel)]="val2" inputId="opt3"></p-radioButton>
+        </div>
+    </div>
+    Selected Value = {{val2||'none'}}
+</p-card>
+<br>
+<br>
+
+<!-- Rating -->
+<p-card title="Rating">
+    <p-rating [(ngModel)]="val3"></p-rating>
+</p-card>
+<br>
+<br>
+
+<!-- Slider -->
+<p-card title="Rating">
+    <h3 class="first">Basic: {{val4}}</h3>
+    <p-slider [(ngModel)]="val4" [style]="{'width':'200px'}"></p-slider>
+</p-card>
+<br>
+<br>
+
+<!-- Spinner -->
+<p-card title="Spinner">
+    <h3 class="first">Basic</h3>
+    <p-spinner size="30" [(ngModel)]="val5"></p-spinner>
+</p-card>
+<br>
+<br>
+
+<!-- Select Button -->
+<p-card title="Select Button">
+    <h3 class="first">Single</h3>
+    <p-selectButton [options]="types" [(ngModel)]="selectedType"></p-selectButton>
+
+    <p>Selected Type: {{selectedType}}</p>
+
+    <p-button (click)="clear()"  icon="fa fa-fw fa-check" label="Clear"></p-button>
+</p-card>
+<br>
+<br>
+
+<!-- ToggleButton -->
+<p-card title="ToggleButton">
+    <h3 class="first">Basic - ({{checked2}})</h3>
+    <p-toggleButton [(ngModel)]="checked2" [style]="{'width':'150px'}"></p-toggleButton>
+</p-card>
+<br>
+<br>
+
+<!-- TriCheck Box -->
+<p-card title="TriCheck Box">
+    <h3 class="first">Value: {{value}}</h3>
+    <p-triStateCheckbox [(ngModel)]="value" label="status"></p-triStateCheckbox>
+</p-card>
+<br>
+<br>
+
