@@ -1,0 +1,12 @@
+<p-card title="Message">
+    <p-messages [(value)]="msgs"></p-messages>
+
+    <button type="button" (click)="show()">Show</button>
+    <button type="button" (click)="hide()">Hide</button>
+</p-card>
+
+<p-card title="Growl">
+    <p-growl [(value)]="msgs_growl"></p-growl>
+    <button type="button" (click)="show_growl()">Show</button>
+    <button type="button" (click)="hide_growl()">Hide</button>
+</p-card>
