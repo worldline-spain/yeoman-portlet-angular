@@ -1,0 +1,45 @@
+<p-card title="Lightbox">
+  <p-lightbox [images]="images"></p-lightbox>
+</p-card>
+<br><br>
+<p-card>
+  <p-overlayPanel #op>
+      {{caption}}
+  </p-overlayPanel>
+
+  <button type="text" pButton label="Basic" (click)="op.toggle($event)"></button>
+</p-card>
+<br><br>
+
+<p-card title="Dialog">
+  <p-dialog header="Title" [(visible)]="display_dialog">
+      The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+       His beloved son Michael has just come home from the war, but does not intend to become part of his father's
+       business. Through Michael's life the nature of the family business becomes clear. The business of the family is
+       just like the head of the family, kind and benevolent to those who give respect, but given to ruthless violence
+       whenever anything stands against the good of the family.
+  </p-dialog>
+
+  <button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>
+</p-card>
+<br> <br>
+
+<p-card title="Sidebar">
+  <p-sidebar [(visible)]="display_sidebar">
+      Content
+  </p-sidebar>
+
+  <button type="text" (click)="display_sidebar = true" pButton icon="fa-external-link-square" label="Show"></button>
+</p-card>
+<br> <br>
+
+<p-card title="tooltip">
+  <input type="text" pTooltip="Enter your username">
+</p-card>
+<br> <br>
+
+<p-card title="confirm">
+  <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+  <button type="text" (click)="confirm()" pButton icon="fa-check" label="Confirm"></button>
+</p-card>
