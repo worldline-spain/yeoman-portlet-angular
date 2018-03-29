@@ -6,9 +6,6 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from '../about/about.component';
 import { HomeComponent } from '../home/home.component';
 
-import { ChartModule } from 'primeng-wl/chart';
-import { GalleriaModule } from 'primeng-wl/galleria';
-
 import { AppRoutingModule } from './app-routing.module';
 import 'chart.js/dist/Chart.min';
 
@@ -16,8 +13,6 @@ import 'chart.js/dist/Chart.min';
 	imports: [
 		AppRoutingModule,
 		BrowserModule,
-		ChartModule,
-		GalleriaModule
 	],
 	declarations: [
 		AppComponent,
