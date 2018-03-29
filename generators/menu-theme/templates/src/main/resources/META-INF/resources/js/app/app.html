@@ -1,0 +1,46 @@
+<p-card title="MenuModel">
+    <p-menu [model]="items"></p-menu>
+</p-card>
+<br> <br>
+<p-card title="Context Menu">
+    <p-contextMenu [global]="true" [model]="items"></p-contextMenu>
+    
+    <p-contextMenu [target]="img" [model]="items2" ></p-contextMenu>
+    <img #img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/220px-Cat_November_2010-1a.jpg" alt="Logo"> 
+</p-card>
+
+<p-card title="Menu">
+    <p-menu [model]="items_menu"></p-menu>
+</p-card>
+
+<p-card title="PanelMenu">
+    <p-panelMenu [model]="items_panel" [style]="{'width':'300px'}" [multiple]="false"></p-panelMenu>
+</p-card>
+
+<p-card title="Steps">
+    <p-steps [model]="items_steps"></p-steps>
+</p-card>
+
+<p-card title="Tiered">
+    <p-tieredMenu [model]="items_panel"></p-tieredMenu>
+</p-card>
+
+<p-card title="Breadcrumb">
+    <p-breadcrumb [model]="items_panel"></p-breadcrumb>
+</p-card>
+
+<p-card title="MegaMenu">
+    <p-megaMenu [model]="items_mega"></p-megaMenu>
+</p-card>
+
+<p-card title="Menu Bar">
+    <p-menubar [model]="items_menubar"></p-menubar>
+</p-card>
+
+<p-card title="Slide Menu">
+    <p-slideMenu [model]="items_slide"></p-slideMenu>
+</p-card>
+
+<p-card title="Tab Menu">
+    <p-tabMenu [model]="items_tab"></p-tabMenu>
+</p-card>
