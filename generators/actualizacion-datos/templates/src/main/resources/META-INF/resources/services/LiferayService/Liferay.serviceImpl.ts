@@ -34,4 +34,20 @@ export class LiferayServiceImpl implements LiferayService {
         }
         return LIFERAY_SERVICE_CONSTATNS.DEFAULT_LANGUAGE
     }
+
+    public on(eventName: string, callback: any): any {
+        if (this.liferay) {
+            return Liferay.on(eventName, callback);
+        } else {
+            return "Portlet out of Liferay context.";
+        }
+    }
+
+    public fire(eventName: string, data?: any): any {
+        if (this.liferay) {
+            return Liferay.fire(eventName, data);
+        } else {
+            return "Portlet out of Liferay context.";
+        }
+    }
 }
