@@ -3,8 +3,8 @@ import { TranslateService, LiferayService } from '../../services/shared.module';
 
 
 @Component({
-	selector: 'app',
-	templateUrl: '/o/formulario-dinamico/js/app/app.html'
+    selector: 'app',
+    templateUrl: '/o/<%= portletName %>/js/app/app.html'
 })
 export class AppComponent {
 
