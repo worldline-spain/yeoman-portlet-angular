@@ -1,0 +1,5 @@
+Bundle-Name: <%= portletName %>
+Bundle-SymbolicName: <%= bundle %>
+Bundle-Version: 1.0.0
+Export-Package: <%= bundle %>.constants
+Web-ContextPath: /<%= portletName %>
