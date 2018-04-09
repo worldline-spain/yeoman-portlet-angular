@@ -20,6 +20,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-phantomjs-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-json-fixtures-preprocessor'),
       // require('karma-coverage-istanbul-reporter'),
       {
         'middleware:liferay-template-url': ['factory', function (config) {
@@ -37,7 +38,8 @@ module.exports = function (config) {
       }
     ],
     preprocessors: {
-      'src/**/*.ts': ['webpack', 'sourcemap']
+      'src/**/*.ts': ['webpack', 'sourcemap'],
+      'src/**/*.json': ['json_fixtures']
     },
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
@@ -56,6 +58,7 @@ module.exports = function (config) {
       'node_modules/zone.js/dist/async-test.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
       'node_modules/zone.js/dist/fake-async-test.js', // 'TypeError: Cannot read property 'assertPresent' of undefined'
       SOURCE_ROOT + '/**/*.html',
+      SOURCE_ROOT + '/**/*.json',
       SOURCE_ROOT + '/**/*.spec.ts'
     ],
     // exclude: [

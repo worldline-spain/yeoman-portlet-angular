@@ -64,6 +64,7 @@
     "karma-coverage-istanbul-reporter": "^1.4.2",
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
+    "karma-json-fixtures-preprocessor": "0.0.6",
     "karma-phantomjs-launcher": "1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.0",
@@ -83,7 +84,7 @@
     "webpack-stream": "^4.0.2"
   },
   "main": "js/angular-loader.js",
-  "name":"<%= portletName %>",
+  "name": "<%= portletName %>",
   "scripts": {
     "build": "tsc && babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler",
     "serve": "gulp serve",

@@ -1,16 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
 
-import { TranslateService, LiferayService, SharedModule,TranslateHttpLoader,TranslateModule, TranslateLoader  } from '../../services/shared.module';
+import { TranslateService, LiferayService, SharedModule, TranslateHttpLoader, TranslateModule, TranslateLoader } from '../../services/shared.module';
 import { AppComponent } from './app.component';
-import { By } from '@angular/platform-browser';
 
 
-function HttpLoaderFactory(http: Http) {
-  return new TranslateHttpLoader(http, './o/porlet-test/js/assets/i18n/locale-', '.json');
+function JsonFixtureLoaderFactory() {
+  return new JsonFixtureTranslateLoader('src/main/resources/META-INF/resources/js/assets/i18n/locale-');
 }
 
 describe('AppComponent', () => {
@@ -44,8 +45,7 @@ describe('AppComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [Http]
+            useFactory: JsonFixtureLoaderFactory
           }
         })
       ],
@@ -114,4 +114,12 @@ describe('AppComponent', () => {
  */
 class MockLiferayService {
   getLanguageLiferay(): string { return 'es_ES'; }
+}
+
+class JsonFixtureTranslateLoader implements TranslateLoader {
+  constructor(private sourceFolder: string) { }
+
+  getTranslation(lang: string): Observable<any> {
+    return Observable.of(window['__fixtures__'][`${this.sourceFolder}${lang}`]);
+  }
 }
