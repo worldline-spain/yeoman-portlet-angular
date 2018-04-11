@@ -14,9 +14,11 @@ import { LiferayServiceImpl } from './LiferayService/Liferay.serviceImpl';
 /* JS imports */
 import 'chart.js/dist/Chart.min';
 import * as Quill from 'quill';
+import * as _ from 'underscore';
 
 /* Windows adds */
 window['Quill'] = Quill;
+window['_'] = _;
 
 
 const providers: Provider[] = [
