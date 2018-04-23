@@ -100,8 +100,8 @@ module.exports = class extends Generator {
                 cssImports:
                     `
 <link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/font-awesome@4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@5.2.1-SNAPSHOT6/resources/themes/omega/theme.css"/>
-<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@5.2.1-SNAPSHOT6/resources/primeng.min.css"/>
+<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@1.0.0/resources/themes/omega/theme.css"/>
+<link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/primeng-wl@1.0.0/resources/primeng.min.css"/>
 <link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/quill@1.1.8/dist/quill.snow.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/o/${userVariables.portletName}/node_modules/quill@1.1.8/dist/quill.bubble.css" rel="stylesheet">
 `
