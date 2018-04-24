@@ -1,0 +1,196 @@
+<p-panel header="{{'companyGroup' | translate }}">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+              {{'name' | translate }}
+          </div>
+          <div class="ui-grid-col-4">
+            <input pInputText type="text" />
+          </div>
+      </div>
+  </div>
+</p-panel>
+
+<p-panel header="{{'company' | translate }}">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+              {{'cif' | translate }}
+          </div>
+          <div class="ui-grid-col-4">
+            <p-dropdown [options]="cifs" [(ngModel)]="selectedCif" [autoWidth]="false"></p-dropdown>
+          </div>
+      </div>
+  </div>
+
+</p-panel>
+
+<p-panel header="{{'filters' | translate }}">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-1">
+              {{'autonomies' | translate }}
+          </div>
+          <div class="ui-grid-col-2">
+            <p-dropdown [options]="autonomies" [(ngModel)]="selectedAutonomy" [autoWidth]="false"></p-dropdown>
+          </div>
+          <div class="ui-grid-col-1">
+            {{'provinces' | translate }}
+          </div>
+          <div class="ui-grid-col-2">
+            <p-dropdown [options]="provinces" [(ngModel)]="selectedProvince" [autoWidth]="false"></p-dropdown>
+          </div>
+          <div class="ui-grid-col-1">
+              {{'period' | translate }}
+          </div>
+          <div class="ui-grid-col-2">
+            <p-dropdown [options]="periods" [(ngModel)]="selectedPeriod" [autoWidth]="false"></p-dropdown>
+          </div>
+          <div class="ui-grid-col-1">
+              {{'withAccessories' | translate }}
+          </div>
+          <div class="ui-grid-col-2">
+            <p-checkbox [(ngModel)]="checked" binary="false" ></p-checkbox>
+          </div>
+      </div>
+  </div>
+</p-panel>
+
+<p-panel header="{{'reportType' | translate }}">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'months' | translate }}" value="val1" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'years' | translate }}" value="val2" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'companies' | translate }}" value="val3" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'autonomies' | translate }}" value="val4" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'provinces' | translate }}" value="val5" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'gender' | translate }}" value="val6" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+        <p-radioButton name="groupname" label="{{'age' | translate }}" value="val7" [(ngModel)]="selectedValue"></p-radioButton>
+      </div>
+      <div class="ui-grid-col-3">
+      </div>
+    </div>
+  </div>
+
+</p-panel>
+
+<p-table [columns]="cols" [value]="data">
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header | translate}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+          <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+          </td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="summary" let-rowData>
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+            </div>
+
+            <div class="ui-grid-col-2">
+              <button type="button" pButton icon="fa-check" iconPos="left" label="{{ 'printReport' | translate }}" (click)="dt.exportCSV()"></button>
+            </div>
+
+            <div class="ui-grid-col-2">
+                <button type="button" pButton icon="fa-file-o" iconPos="left" label="{{ 'export' | translate }}" (click)="dt.exportCSV()"></button>
+              </div>
+
+            <div class="ui-grid-col-2">
+                <button type="button" pButton label="{{ 'print' | translate }}" (click)="dt.exportCSV()"></button>
+            </div>
+
+        </div>
+      </div>
+
+  </ng-template>
+</p-table>
+
+
+<p-panel header="{{'legend' | translate }}">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-3">
+            {{'casualties' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'casualtiesMessage' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newWorker' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newMessage' | translate }}
+        </div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-3">
+            {{'casualties' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'casualtiesMessage' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newWorker' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newMessage' | translate }}
+        </div>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-3">
+            {{'casualties' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'casualtiesMessage' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newWorker' | translate }}
+        </div>
+        <div class="ui-grid-col-3">
+            {{'newMessage' | translate }}
+        </div>
+      </div>
+    </div>
+</p-panel>
+
+<p-panel header="{{'charts' | translate }}">
+
+</p-panel>
+
+<p-footer>
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+      <div class="ui-grid-row">
+          <div class="ui-grid-col-10">
+          </div>
+        <div class="ui-grid-col-2">
+            <button type="button" pButton   label="{{ 'return' | translate }}"></button>
+        </div>
+      </div>
+  </div>
+
+</p-footer>

@@ -1,0 +1,56 @@
+{
+  "headLabel": "Anàlisi d'absentisme per contingència comuna",
+  "companyGroupLabel": "Col·laborador/Grup d'empreses",
+  "companyType": {
+    "label": "Tipus",
+    "type1": "Tipus 1",
+    "type2": "Tipus 2",
+    "type3": "Tipus 3",
+    "companyTypeVal": "Tipus requerit"
+  },
+  "companyLabel": "Empresa",
+  "cif": "CIF",
+  "companyName": "Nom",
+  "reportDataLabel": "Dades de l'informe",
+  "startingMonth": {
+    "label": "Seleccioni el mes en el qual s'inicia el seu any laboral",
+    "jan": "gener",
+    "feb": "febrer",
+    "mar": "març",
+    "apr": "abril",
+    "may": "maig",
+    "jun": "juny",
+    "jul": "juliol",
+    "aug": "agost",
+    "sep": "setembre",
+    "oct": "octubre",
+    "nov": "novembre",
+    "dec": "desembre",
+    "startingMonthVal": "Mes requerit"
+  },
+  "yearPeriod": "Període",
+  "indexes": {
+    "label": "Incloure índexs comparatius en els gràfics",
+    "cartera": "Cartera",
+    "cnae": "CNAE",
+    "none": "Sense índexs"
+  },
+  "complements": "Amb complements",
+  "generatePDFReport": "Informe genèric",
+  "generateReport": "Generar informe",
+  "reset": "Netejar",
+  "relatedDocs": {
+    "title": "Documents relacionats amb les contingències comunes",
+    "doc1": "Anàlisi d'absentisme per contingència comuna",
+    "doc2": "Dades i indicadors",
+    "doc3": "Introducció i indicadors en MC MUTUAL",
+    "doc4": "Influència de l'edat i el gènere",
+    "doc5": "Factors que influeixen en la durada dels episodis",
+    "doc6": "Influència de la grandària de l'empresa, la seva localització i la seva activitat econòmica, en la IT per contingència comuna"
+  },
+  "link": {
+    "manual": "Manual",
+    "glossary": "Glossari",
+    "article": "Article"
+  }
+}

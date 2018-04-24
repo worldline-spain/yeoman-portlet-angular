@@ -1,0 +1,56 @@
+{
+  "headLabel": "Análisis de absentismo por contigencia común",
+  "companyGroupLabel": "Colaborador/Grupo de empresas",
+  "companyType": {
+    "label": "Tipo",
+    "type1": "Tipo 1",
+    "type2": "Tipo 2",
+    "type3": "Tipo 3",
+    "companyTypeVal": "Tipo requerido"
+  },
+  "companyLabel": "Empresa",
+  "cif": "CIF",
+  "companyName": "Nombre",
+  "reportDataLabel": "Datos del informe",
+  "startingMonth": {
+    "label": "Seleccione el mes en el que se inicia su año laboral",
+    "jan": "enero",
+    "feb": "febrero",
+    "mar": "marzo",
+    "apr": "abril",
+    "may": "mayo",
+    "jun": "junio",
+    "jul": "julio",
+    "aug": "agosto",
+    "sep": "septiembre",
+    "oct": "octubre",
+    "nov": "noviembre",
+    "dec": "diciembre",
+    "startingMonthVal": "Mes requerido"
+  },
+  "yearPeriod": "Período",
+  "indexes": {
+    "label": "Incluir índices comparativos en los gráficos",
+    "cartera": "Cartera",
+    "cnae": "CNAE",
+    "none": "Sin índices"
+  },
+  "complements": "Con complementos",
+  "generatePDFReport": "Informe genérico",
+  "generateReport": "Generar informe",
+  "reset": "Limpiar",
+  "relatedDocs": {
+    "title": "Documentos relacionados con las contingencias comunes",
+    "doc1": "Análisis de absentismo por contingencia común",
+    "doc2": "Datos e indicadores",
+    "doc3": "Introducción e indicatores en MC MUTUAL",
+    "doc4": "Influencia de la edad y el género",
+    "doc5": "Factores que influyen en la duración de los episodios",
+    "doc6": "Influencia del tamaño de la empresa, su localización y su actividad económica, en la IT por contingencia común"
+  },
+  "link":{
+    "manual" : "Manual",
+    "glossary": "Glosario",
+    "article": "Artículo"
+  }
+}

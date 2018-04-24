@@ -1,0 +1,141 @@
+
+
+<p-card>
+
+  <p-growl [value]="msgs" baseZIndex="1034"></p-growl>
+
+  <form [formGroup]="companyReportForm" (ngSubmit)="onSubmit(companyReportForm.value)">
+
+    <p-panel header="{{'headLabel' | translate }}">
+
+      <p-panel header="{{'companyGroupLabel' | translate }}">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              {{'companyType.label' | translate }}
+            </div>
+            <div class="ui-grid-col-4">
+              <p-dropdown [options]="companyTypes" formControlName="companyType" [autoWidth]="false"></p-dropdown>
+            </div>
+            <div class="ui-grid-col-6">
+              <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!companyReportForm.controls['companyType'].valid&&companyReportForm.controls['companyType'].dirty">
+                <i class="fa fa-close"></i>
+                {{'companyType.companyTypeVal' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-panel>
+
+      <p-panel header="{{'companyLabel' | translate }}">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              {{'cif' | translate }}
+            </div>
+            <div class="ui-grid-col-2">
+              <input pInputText type="text" formControlName="cif" />
+            </div>
+            <div class="ui-grid-col-1">
+              <button pButton (click)="searchCompany()" label="searchIcon" [disabled]="!companyReportForm.controls['cif'].valid"></button>
+            </div>
+            <div class="ui-grid-col-1"></div>
+            <div class="ui-grid-col-2">
+              {{'companyName' | translate }}
+            </div>
+            <div class="ui-grid-col-4">
+              <input pInputText type="text" formControlName="companyName" [(ngModel)]="companyFromCif" disabled/>
+            </div>
+          </div>
+        </div>
+      </p-panel>
+
+      <p-panel header="{{'reportDataLabel' | translate }}">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+              {{'startingMonth.label' | translate }}
+            </div>
+            <div class="ui-grid-col-2">
+              <p-dropdown [options]="months" formControlName="startingMonth" [autoWidth]="false"></p-dropdown>
+            </div>
+            <div class="ui-grid-col-4">
+              <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!companyReportForm.controls['startingMonth'].valid&&companyReportForm.controls['startingMonth'].dirty">
+                <i class="fa fa-close"></i>
+                {{'startingMonth.startingMonthVal' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+              {{'yearPeriod' | translate }}
+            </div>
+            <div class="ui-grid-col-2">
+              <p-dropdown [options]="years" formControlName="yearPeriod" [autoWidth]="false"></p-dropdown>
+            </div>
+            <div class="ui-grid-col-4"></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+              {{'indexes.label' | translate }}
+            </div>
+            <div class="ui-grid-col-2">
+              <p-radioButton name="subscription" value="cartera" label="{{'indexes.cartera' | translate}}" formControlName="graphIndex"></p-radioButton>
+            </div>
+            <div class="ui-grid-col-2">
+              <p-radioButton name="subscription" value="cnae" label="{{'indexes.cnae' | translate}}" formControlName="graphIndex"></p-radioButton>
+            </div>
+            <div class="ui-grid-col-2">
+              <p-radioButton name="subscription" value="none" label="{{'indexes.none' | translate}}" formControlName="graphIndex"></p-radioButton>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+              {{'complements' | translate }}
+            </div>
+            <div class="ui-grid-col-3">
+              <p-toggleButton onIcon="fa-check-square" offIcon="fa-square" onLabel="{{'complements' | translate}}" offLabel="{{'complements' | translate}}"
+                formControlName="complements" [(ngModel)]="companyReportForm.value.complements"></p-toggleButton>
+            </div>
+            <div class="ui-grid-col-3"></div>
+          </div>
+        </div>
+      </p-panel>
+
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-3"></div>
+        <div class="ui-grid-col-2">
+          <button pButton type="submit" label="{{'generatePDFReport' | translate }}" [disabled]="!companyReportForm.valid"></button>
+        </div>
+        <div class="ui-grid-col-2">
+          <button pButton type="submit" label="{{'generateReport' | translate }}" [disabled]="!companyReportForm.valid"></button>
+        </div>
+        <div class="ui-grid-col-2">
+          <button pButton type="reset" label="{{'reset' | translate }}" [disabled]="companyReportForm.pristine"></button>
+        </div>
+        <div class="ui-grid-col-3"></div>
+      </div>
+
+    </p-panel>
+
+  </form>
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-12">
+        <b>{{'relatedDocs.title' | translate }}</b>
+        <ul>
+          <li>{{'relatedDocs.doc1' | translate }} <a>{{'link.manual' | translate }}</a></li>
+          <li>{{'relatedDocs.doc2' | translate }} <a>{{'link.glossary' | translate }}</a></li>
+          <li>{{'relatedDocs.doc3' | translate }} <a>{{'link.article' | translate }}</a></li>
+          <li>{{'relatedDocs.doc4' | translate }} <a>{{'link.article' | translate }}</a></li>
+          <li>{{'relatedDocs.doc5' | translate }} <a>{{'link.article' | translate }}</a></li>
+          <li>{{'relatedDocs.doc6' | translate }} <a>{{'link.article' | translate }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</p-card>
