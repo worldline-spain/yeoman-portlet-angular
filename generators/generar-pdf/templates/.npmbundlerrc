@@ -1,0 +1,16 @@
+{
+    "preset": "liferay-npm-bundler-preset-angular",
+    "verbose": true,
+    "exclude": {
+		"resolve":["test/**/*.js"],
+        "chart.js": ["gulpfile.js"],
+		"tiny-inflate":["zlib.js"],
+		"quote-stream":["bin/cmd.js"],
+		"object-inspect":["test/lowbyte.js"],
+		"source-map":["Makefile.dryice.js"],
+		"esprima":["test/test.js"],
+		"brfs":["bin/cmd.js"],
+		"fontkit":["/src/**/*.js"],
+        "mkdirp": ["bin/**/*"]
+    }
+}
