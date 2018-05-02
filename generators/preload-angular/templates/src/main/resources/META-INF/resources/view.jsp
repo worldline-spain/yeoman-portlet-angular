@@ -57,7 +57,7 @@
 		}
 	</style>
 
-	<div id="<portlet:namespace />">
+	<div id="<portlet:namespace />" class="angular">
 		<!-- loading layout replaced by app after startupp -->
 		<div class="app-loading">
 			<div class="logo"></div>

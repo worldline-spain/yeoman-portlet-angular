@@ -37,7 +37,7 @@
               <input pInputText type="text" formControlName="cif" />
             </div>
             <div class="ui-grid-col-1">
-              <button pButton (click)="searchCompany()" label="searchIcon" [disabled]="!companyReportForm.controls['cif'].valid"></button>
+              <button pButton (click)="searchCompany()" label="{{'search' | translate}}" [disabled]="!companyReportForm.controls['cif'].valid"></button>
             </div>
             <div class="ui-grid-col-1"></div>
             <div class="ui-grid-col-2">
